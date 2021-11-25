@@ -15,7 +15,16 @@ Medication.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        example_brand: {
+            type: DataTypes.STRING,
+        },
         description: {
+            type: DataTypes.STRING,
+        },
+        dateRange: {
+            type: DataTypes.STRING,
+        },
+        dosage: {
             type: DataTypes.STRING,
         },
         user_id: {
@@ -36,3 +45,6 @@ Medication.init(
 );
 
 module.exports = Medication;
+
+// date range
+// dosage
