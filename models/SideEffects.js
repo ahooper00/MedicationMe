@@ -6,7 +6,8 @@ class SideEffects extends Model { }
 SideEffects.init(
     {
         id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            primaryKey: true,
         },
         description: {
             type: DataTypes.STRING,

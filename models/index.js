@@ -11,12 +11,12 @@ Medication.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-Medication.hasMany(Side_effects, {
+Medication.hasMany(SideEffects, {
     foreignKey: 'medication_id',
 });
 
-SideEffects.belongsToMany(Medication, {
-    foreignKey: 'medication_id', // do I need a 'through:' section for this part?
+SideEffects.hasMany(Medication, {
+    foreignKey: 'medication_id',
 });
 
 module.exports = { User, Medication, SideEffects };
