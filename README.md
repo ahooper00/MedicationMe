@@ -18,6 +18,6 @@ MedicationMe is an application that allows users to create their own account, an
 
 ## Preview
 
-The following images demonstrates the UI of the application
+The following images demonstrates the UI of the application:
 
 ![Profile page](./public/images/profile.jpg)
