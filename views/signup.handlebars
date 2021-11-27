@@ -1,0 +1,78 @@
+<div class="container sign-up">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col mt-5 content">
+      <h1 class="text-center poppins purple">
+        <a href="/" class="link-purple"><img
+            src="./images/logo.jpg"
+            width="60px"
+            height="50px"
+          />MedicationMe</a>
+      </h1>
+      <div class="card m-5 p-4">
+        <div class="card-body">
+          <h3 class="text-center">Sign me up!</h3>
+          <form class="signup-form">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="name"
+                aria-describedby="nameHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="gender" class="form-label">Gender</label>
+              <select
+                class="form-select form-select-sm"
+                id="gender"
+                aria-label="gender"
+              >
+                <option selected>Select...</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Prefer not to say</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="dob" class="form-label">Date of Birth</label>
+              <input
+                type="date"
+                class="form-control form-control-sm"
+                id="dob"
+                aria-describedby="dobHelp"
+              />
+            </div>
+            <div class="mb-3 mt-2">
+              <label for="email" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control form-control-sm"
+                id="email"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="mb-3 mt-2">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control form-control-sm"
+                id="password"
+              />
+              <p class="font-12">Min. 8 characters</p>
+            </div>
+            <div class="mb-3 d-grid gap-2 col-6 mx-auto">
+              <button type="submit" class="btn btn-sm peach">
+                Sign Up!
+              </button>
+            </div>
+          </form>
+          <div class="mb-3 text-center font-12">
+            <p>Already have an account? <a href="/">Login here!</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

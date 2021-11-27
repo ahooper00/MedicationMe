@@ -1,0 +1,167 @@
+:root {
+  --poppins: Poppins, sans-serif;
+  --sans: sans-serif;
+  --purple: rgb(110, 37, 110);
+  --lightpurple: rgb(179, 101, 179);
+  --peach: rgb(255, 212, 219);
+  --darkpeach: rgb(209, 167, 175);
+  --grey: rgb(212, 212, 212);
+}
+
+.poppins {
+  font-family: var(--poppins);
+}
+
+a {
+  text-decoration: none;
+}
+
+.link-purple {
+  color: var(--purple);
+}
+
+.grey {
+  background-color: var(--grey);
+}
+
+.link-purple:hover {
+  color: var(--lightpurple);
+}
+
+.btn:hover {
+  background-color: var(--darkpeach);
+}
+
+body {
+  width: 100%;
+  background-image: url(../images/herbpills2.jpg);
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: var(--sans);
+  font-size: 14px;
+}
+
+.sans {
+  font-family: sans-serif !important;
+}
+
+.peach {
+  background-color: var(--peach);
+}
+
+.darkpeach {
+  background-color: var(--darkpeach);
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  text-align: center;
+}
+
+.font-12,
+.tab-panel {
+  font-size: 12px;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: var(--light-text);
+  font-family: var(--poppins);
+  padding: 0 2rem;
+  margin: 2rem 10rem;
+}
+
+.header-list {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+}
+
+.nav-item-list {
+  padding: 2rem;
+}
+
+.tabSection,
+.user {
+  height: 100%;
+  width: 70%;
+  margin: 3rem auto;
+}
+
+.tabset > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .tab-panel {
+  display: none;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+  display: block;
+}
+
+.tabset > label {
+  position: relative;
+  display: inline-block;
+  padding: 15px 15px 25px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabset > label::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  width: 22px;
+  height: 4px;
+  background: #702972;
+}
+
+.tabset > label:hover,
+.tabset > input:focus + label {
+  color: var(--purple);
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+  background: var(--peach);
+}
+
+.tabset > input:checked + label {
+  border-color: #ccc;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+}
+
+.tab-panel {
+  padding: 30px 0;
+  border-top: 1px solid #ccc;
+}
+
+.btn-w {
+  width: 200px;
+}

@@ -1,0 +1,219 @@
+<nav>
+      <h1 class="title pt-3">
+        <a href="/" class="link-purple"
+          ><img src="./images/logo.jpg" width="60px" height="50px" /> MMe</a
+        >
+      </h1>
+      <ul class="header-list">
+        <li class="nav-item-list">
+          <a href="/" class="link-purple">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="user">
+      <h2>Hello, User!</h2>
+    </section>
+
+    <section class="tabSection">
+      <div class="tabset">
+        <!-- Tab 1 -->
+        <input
+          type="radio"
+          name="tabset"
+          id="tab1"
+          aria-controls="marzen"
+          checked
+        />
+        <label for="tab1">My Schedule</label>
+        <!-- Tab 2 -->
+        <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier" />
+        <label for="tab2">My Medications</label>
+        <!-- Tab 3 -->
+        <input type="radio" name="tabset" id="tab3" aria-controls="dunkles" />
+        <label for="tab3">My Details</label>
+
+        <div class="tab-panels">
+          <section id="marzen" class="tab-panel">
+            <div class="row m-3">
+              <div class="col-12 p-4">
+                <div class="card" style="width: 100%">
+                  <div class="card-header darkpeach">
+                    <h4>Today's medication schedule</h4>
+                  </div>
+                  <table class="table table-striped">
+                    <thead>
+                      <th scope="col">Time</th>
+                      <th scope="col">Medication</th>
+                      <th scope="col">Dose</th>
+                      <th scope="col">Comments</th>
+                    </thead>
+                    <tbody>
+                        {{#each medication as |med|}}
+                        {{> schedule-details}}
+                        {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+              <div class="col m-4">
+                <div class="card" style="width: 100%">
+                  <div class="card-header grey">
+                    <h5>Upcoming</h5>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                      {{#each medication as |med|}}
+                      {{> upcoming-details}}
+                      {{/each}}
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col m-4">
+                <div class="card" style="width: 100%">
+                  <div class="card-header grey">
+                    <h5>Add new medication schedule</h5>
+                  </div>
+                  <div class="card-body">
+                    <form class="new-schedule">
+                      <div class="mb-3">
+                        <label for="medname" class="form-label">Name of Medication</label>
+                        <input
+                          type="text"
+                          class="form-control form-control-sm sans"
+                          id="medname"
+                          aria-describedby="medHelp"
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="time" class="form-label">Daily Time Schedule</label>
+                        <input
+                          type="text"
+                          class="form-control form-control-sm sans"
+                          placeholder="12pm, 6pm"
+                          id="time"
+                          aria-describedby="timeHelp"
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <div class="row g-2">
+                          <div class="col">
+                            <label for="daterangefrom" class="form-label">Date Range From:</label> 
+                            <input type="date" class="form-control form-control-sm" id="fromDate" aria-label="date">
+                          </div>
+                          <div class="col">
+                            <label for="daterangeto" class="form-label">To:</label>
+                            <input type="date" class="form-control form-control-sm" id="toDate" aria-label="date">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="dosage" class="form-label">Dosage</label>
+                        <input
+                          type="text"
+                          class="form-control form-control-sm"
+                          placeholder="2 tablets each period"
+                          id="dosage"
+                          aria-describedby="dosageHelp"
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="instructions" class="form-label">Additional Instructions</label>
+                        <input
+                          type="text"
+                          class="form-control form-control-sm"
+                          placeholder="Before food"
+                          id="instructions"
+                          aria-describedby="instructionsHelp"
+                        />
+                      </div>
+
+                      <div class="d-flex justify-content-between">
+                        <button type="reset" class="btn btn-sm btn-w grey">
+                          Reset
+                        </button>
+
+
+                        <button type="submit" class="btn btn-sm btn-w peach">
+                          Add Schedule
+                        </button>
+                      </div>
+                        
+
+                    </form>
+                  </div>
+                </div>
+            </div>
+          </section>
+
+          <section id="rauchbier" class="tab-panel">
+            <div class="row m-3">
+              <div class="col-12 p-4">
+                <div class="card" style="width: 100%">
+                  <div class="card-header darkpeach">
+                  <h4>My Current Medication List</h4>
+                  </div>
+                  <table class="table table-striped">
+                    <thead>
+                      <th scope="col">Medication</th>
+                      <th scope="col">Dose</th>
+                      <th scope="col">Comments</th>
+                      <th scope="col">Time Frame</th>
+                    </thead>
+                    <tbody>
+                        {{#each medication as |med|}}
+                        {{> medications}}
+                      <tr>
+                        <td>Vitamin E</td>
+                        <td>1 Tablet</td>
+                        <td>Before Food</tb>
+                        <td>12/12/2021 to 18/12/2021</tb>
+                      </tr>
+                      <tr>
+                        <td>Iron Deficiency Tablets</td>
+                        <td>1 Tablet</td>
+                        <td>Before Food</tb>
+                        <td>12/12/2021 to 18/12/2021</tb>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+              
+          </section>
+          
+          <section id="dunkles" class="tab-panel">
+            <div class="row m-3">
+              <div class="col-12 p-4">
+                <div class="card" style="width: 100%">
+                  <div class="card-header darkpeach">
+                  <h4>My User Details</h4>
+                  </div>
+                  <table class="table table-striped">
+                    <thead>
+                      <th scope="col">Name</th>
+                      <th scope="col">Gender</th>
+                      <th scope="col">Date of Birth</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Tony Riddford</th>
+                        <td>Male</td>
+                        <td>18/03/1922</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
