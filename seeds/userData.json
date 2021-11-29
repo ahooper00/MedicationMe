@@ -1,20 +1,26 @@
 [
     {
-        "first_name": "Amelia",
-        "last_name": "Hooper",
+        "firstName": "Amelia",
+        "lastName": "Hooper",
         "email": "AmeliaH@email.com",
         "password": "Amelia1234"
     },
     {
-        "first_name": "Sam",
-        "last_name": "Hong",
+        "firstName": "Sam",
+        "lastName": "Hong",
         "email": "SamH@email.com",
         "password": "Sam1234"
     },
     {
-        "first_name": "Anna",
-        "last_name": "Nguyen",
+        "firstName": "Anna",
+        "lastName": "Nguyen",
         "email": "AnnaN@email.com",
         "password": "Anna1234"
+    },
+    {
+        "firstName": "John",
+        "lastName": "Smith",
+        "email": "jbody@example.com",
+        "password": "password1234"
     }
 ]

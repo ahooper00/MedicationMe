@@ -1,27 +1,27 @@
 [
     {
         "name": "Paracetamol",
-        "example_brand": "Panadol",
+        "exampleBrand": "Panadol",
         "description": "Pain reliever and fever reducer"
     },
     {
         "name": "Ibuprofen",
-        "example_brand": "Nurofen",
+        "exampleBrand": "Nurofen",
         "description": "Nonsteroidal anti-inflammatory drug; assists in reducing swelling and inflammation"
     },
     {
         "name": "Cetirizine",
-        "example_brand": "Zyrtec",
+        "exampleBrand": "Zyrtec",
         "description": "Antihistamine that treats hay-fever-like alleries and symptoms"
     },
     {
         "name": "Salbutamol",
-        "example_brand": "Ventolin",
+        "exampleBrand": "Ventolin",
         "description": "Assists in the treatment of asthma by relaxing muscles in the airways, and increasing airflow to the lungs"
     },
     {
         "name": "Penicillin",
-        "example_brand": "Amoxil",
+        "exampleBrand": "Amoxil",
         "description": "Treats infections caused by bacteria"
     }
 ]

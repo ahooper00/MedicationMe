@@ -8,6 +8,7 @@ SideEffects.init(
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true
     },
     description: {
       type: DataTypes.STRING,
@@ -15,7 +16,7 @@ SideEffects.init(
     medication_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Medication",
+        model: "medication",
         key: "id",
       },
     },
