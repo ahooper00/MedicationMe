@@ -1,5 +1,36 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Medication, SideEffects } = require('../../models');
+
+// Get all users
+router.get('/', async (req, res) => {
+    // Find all medications
+    try {
+        const getUser = await User.findAll({
+            include: [Medication, SideEffects]
+        }
+        );
+        res.status(200).json(getUser)
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Get one user
+router.get('/:id', async (req, res) => {
+    // Find one user by its 'id'
+    try {
+        const findOneUser = await User.findByPk(req.params.id, {
+            include: [Medication, SideEffects]
+        });
+        if (!findOneUser) {
+            res.status(400).json({ message: 'No user found with that id' })
+            return
+        }
+        res.status(200).json(findOneUser)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
 
 // Create a new user
 router.post('/', async (req, res) => {
@@ -9,7 +40,7 @@ router.post('/', async (req, res) => {
         // Save user id and password
         req.session.save(() => {
             req.session.user_id = userData.id,
-            req.session.logged_in = true;
+                req.session.logged_in = true;
 
             res.status(200).json(userData);
         });
@@ -33,16 +64,16 @@ router.post('/login', async (req, res) => {
 
         // If the user data (password) doesn't exist in database, throw error message
         if (!userPassword) {
-            res.status(400).json({ message: 'Incorrect email or password, try again.'});
+            res.status(400).json({ message: 'Incorrect email or password, try again.' });
             return
         }
 
         // If user data matches what is saved in database, show success message
         req.session.save(() => {
             req.session.user_id = userData.id,
-            req.session.logged_in = true;
+                req.session.logged_in = true;
 
-            res.status(200).json({ message: "Successfully logged in!"})
+            res.status(200).json({ message: "Successfully logged in!" })
         });
     } catch (err) {
         res.status(400).json(err)

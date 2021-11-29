@@ -9,25 +9,25 @@ class User extends Model {
 User.init(
   {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    first_name: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    last_name: {
+    lastName: {
       type: DataTypes.STRING,
     },
     gender: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    date_of_birth: {
+    dateOfBirth: {
       type: DataTypes.DATE,
-      allowNull: true,
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,

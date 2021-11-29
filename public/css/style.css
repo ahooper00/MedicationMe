@@ -8,6 +8,14 @@
   --grey: rgb(212, 212, 212);
 }
 
+html {
+  overflow-y: scroll;
+}
+
+body {
+  position: absolute;
+}
+
 .poppins {
   font-family: var(--poppins);
 }

@@ -11,20 +11,20 @@
   {
     "name": "Ibuprofen",
     "dailySchedule": "2 times a day",
-    "fromDate": "2021-11-21",
-    "toDate": "2021-12-01",
+    "fromDate": "2021-11-29",
+    "toDate": "2021-12-05",
     "dosage": "1 tablet",
     "comments": "Nonsteroidal anti-inflammatory drug; assists in reducing swelling and inflammation",
-    "user_id": "2"
+    "user_id": "1"
   },
   {
     "name": "Cetirizine",
     "dailySchedule": "2 times a day",
-    "fromDate": "2021-11-22",
-    "toDate": "2021-12-04",
+    "fromDate": "2021-11-29",
+    "toDate": "2021-12-05",
     "dosage": "1 tablet",
     "comments": "Antihistamine that treats hay-fever-like alleries and symptoms",
-    "user_id": "3"
+    "user_id": "2"
   },
   {
     "name": "Salbutamol",
