@@ -1,47 +1,50 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class Medication extends Model { }
+class Medication extends Model {}
 
 Medication.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        example_brand: {
-            type: DataTypes.STRING,
-        },
-        description: {
-            type: DataTypes.STRING,
-        },
-        dateRange: {
-            type: DataTypes.STRING,
-        },
-        dosage: {
-            type: DataTypes.STRING,
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        }
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'medication',
-    }
+    dailySchedule: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    fromDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    toDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    dosage: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    comments: {
+      type: DataTypes.STRING,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "User",
+        key: "id",
+      },
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "Medication",
+  }
 );
 
 module.exports = Medication;
