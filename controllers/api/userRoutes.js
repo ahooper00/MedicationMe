@@ -25,7 +25,7 @@ router.post('/login', async (req, res) => {
 
         // If the user data (email) doesn't exist in database, throw error message
         if (!userData) {
-            res.status(400).json({ message: 'Incorrect email or password, try again.'});
+            res.status(400).json({ message: 'Incorrect email or password, try again.' });
             return;
         }
 

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
-const medicationRoutes = require('./projectRoutes');
+const medicationRoutes = require('./medicationRoutes');
 const sideEffectsRoutes = require('./medicationRoutes');
 
 router.use('/users', userRoutes);
