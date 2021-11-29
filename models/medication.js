@@ -16,15 +16,15 @@ Medication.init(
     },
     dailySchedule: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     fromDate: {
       type: DataTypes.DATE,
-      allowNull: true,
+      allowNull: false,
     },
     toDate: {
       type: DataTypes.DATE,
-      allowNull: true,
+      allowNull: false,
     },
     dosage: {
       type: DataTypes.STRING,

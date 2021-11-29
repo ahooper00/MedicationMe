@@ -1,27 +1,26 @@
-
+[
   {
-    "first_name": "Amelia",
-    "last_name": "Hooper",
+    "firstName": "Amelia",
+    "lastName": "Hooper",
     "gender": "Female",
-    "date_of_birth": "01/01/1900",
+    "dateOfBirth": "01/01/1900",
     "email": "AmeliaH@email.com",
     "password": "Amelia1234"
   },
   {
-    "first_name": "Sam",
-    "last_name": "Hong",
+    "firstName": "Sam",
+    "lastName": "Hong",
     "gender": "Male",
-    "date_of_birth": "01/01/1900",
+    "dateOfBirth": "01/01/1900",
     "email": "SamH@email.com",
     "password": "Sam1234"
   },
   {
-    "first_name": "Anna",
-    "last_name": "Nguyen",
+    "firstName": "Anna",
+    "lastName": "Nguyen",
     "gender": "Female",
-    "date_of_birth": "01/01/1900",
+    "dateOfBirth": "01/01/1900",
     "email": "AnnaN@email.com",
     "password": "Anna1234"
   }
 ]
-

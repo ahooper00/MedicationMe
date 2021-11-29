@@ -23,15 +23,15 @@ User.init(
     },
     gender: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
-    date_of_birth: {
+    dateOfBirth: {
       type: DataTypes.DATE,
-      allowNull: true,
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       unique: true,
       validate: {
         isEmail: true,
@@ -39,7 +39,7 @@ User.init(
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       validate: {
         len: [8],
         is: /^[0-9a-f]{64}$/, // unsure about this part - happy to change to just length if the doesn't work??
