@@ -1,26 +1,27 @@
-[
-    {
-        "firstName": "Amelia",
-        "lastName": "Hooper",
-        "email": "AmeliaH@email.com",
-        "password": "Amelia1234"
-    },
-    {
-        "firstName": "Sam",
-        "lastName": "Hong",
-        "email": "SamH@email.com",
-        "password": "Sam1234"
-    },
-    {
-        "firstName": "Anna",
-        "lastName": "Nguyen",
-        "email": "AnnaN@email.com",
-        "password": "Anna1234"
-    },
-    {
-        "firstName": "John",
-        "lastName": "Smith",
-        "email": "jbody@example.com",
-        "password": "password1234"
-    }
+
+  {
+    "first_name": "Amelia",
+    "last_name": "Hooper",
+    "gender": "Female",
+    "date_of_birth": "01/01/1900",
+    "email": "AmeliaH@email.com",
+    "password": "Amelia1234"
+  },
+  {
+    "first_name": "Sam",
+    "last_name": "Hong",
+    "gender": "Male",
+    "date_of_birth": "01/01/1900",
+    "email": "SamH@email.com",
+    "password": "Sam1234"
+  },
+  {
+    "first_name": "Anna",
+    "last_name": "Nguyen",
+    "gender": "Female",
+    "date_of_birth": "01/01/1900",
+    "email": "AnnaN@email.com",
+    "password": "Anna1234"
+  }
 ]
+

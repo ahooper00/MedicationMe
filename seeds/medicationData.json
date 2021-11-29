@@ -1,27 +1,46 @@
-[
-    {
-        "name": "Paracetamol",
-        "exampleBrand": "Panadol",
-        "description": "Pain reliever and fever reducer"
-    },
-    {
-        "name": "Ibuprofen",
-        "exampleBrand": "Nurofen",
-        "description": "Nonsteroidal anti-inflammatory drug; assists in reducing swelling and inflammation"
-    },
-    {
-        "name": "Cetirizine",
-        "exampleBrand": "Zyrtec",
-        "description": "Antihistamine that treats hay-fever-like alleries and symptoms"
-    },
-    {
-        "name": "Salbutamol",
-        "exampleBrand": "Ventolin",
-        "description": "Assists in the treatment of asthma by relaxing muscles in the airways, and increasing airflow to the lungs"
-    },
-    {
-        "name": "Penicillin",
-        "exampleBrand": "Amoxil",
-        "description": "Treats infections caused by bacteria"
-    }
+{
+    "name": "Paracetamol",
+    "dailySchedule": "2 times a day",
+    "fromDate": "2021-11-29",
+    "toDate": "2021-12-05",
+    "dosage": "1 tablet",
+    "comments": "Pain reliever and fever reducer, with food",
+    "user_id": "1"
+  },
+  {
+    "name": "Ibuprofen",
+    "dailySchedule": "2 times a day",
+    "fromDate": "2021-11-29",
+    "toDate": "2021-12-05",
+    "dosage": "1 tablet",
+    "comments": "Nonsteroidal anti-inflammatory drug; assists in reducing swelling and inflammation",
+    "user_id": "1"
+  },
+  {
+    "name": "Cetirizine",
+    "dailySchedule": "2 times a day",
+    "fromDate": "2021-11-29",
+    "toDate": "2021-12-05",
+    "dosage": "1 tablet",
+    "comments": "Antihistamine that treats hay-fever-like alleries and symptoms",
+    "user_id": "2"
+  },
+  {
+    "name": "Salbutamol",
+    "dailySchedule": "2 times a day",
+    "fromDate": "2021-11-29",
+    "toDate": "2021-12-05",
+    "dosage": "1 tablet",
+    "comments": "Assists in the treatment of asthma by relaxing muscles in the airways, and increasing airflow to the lungs",
+    "user_id": "3"
+  },
+  {
+    "name": "Penicillin",
+    "dailySchedule": "2 times a day",
+    "fromDate": "2021-11-29",
+    "toDate": "2021-12-05",
+    "dosage": "1 tablet",
+    "comments": "Treats infections caused by bacteria",
+    "user_id": "3"
+  }
 ]

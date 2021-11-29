@@ -14,9 +14,6 @@ Medication.init(
     name: {
       type: DataTypes.STRING,
     },
-    exampleBrand: {
-      type: DataTypes.STRING,
-    },
     dailySchedule: {
       type: DataTypes.STRING,
       allowNull: true,
