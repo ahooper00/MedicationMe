@@ -1,5 +1,5 @@
-const User = require('./Medication');
-const Medication = require('./User');
+const Medication = require('./Medication');
+const User = require('./User');
 const SideEffects = require('./SideEffects');
 
 User.hasMany(Medication, {
@@ -15,7 +15,7 @@ Medication.hasMany(SideEffects, {
     foreignKey: 'medication_id',
 });
 
-SideEffects.hasMany(Medication, {
+SideEffects.belongsTo(Medication, {
     foreignKey: 'medication_id',
 });
 

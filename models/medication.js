@@ -13,23 +13,22 @@ Medication.init(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     dailySchedule: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     fromDate: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     toDate: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     dosage: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     comments: {
       type: DataTypes.STRING,
@@ -37,7 +36,7 @@ Medication.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "User",
+        model: "user",
         key: "id",
       },
     },
@@ -47,7 +46,7 @@ Medication.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Medication",
+    modelName: "medication",
   }
 );
 
