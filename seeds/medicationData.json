@@ -30,18 +30,18 @@
     "name": "Salbutamol",
     "dailySchedule": "2 times a day",
     "fromDate": "2021-11-29",
-    "toDate": "2021-12-05",
+    "toDate": "2021-12-01",
     "dosage": "1 tablet",
     "comments": "Assists in the treatment of asthma by relaxing muscles in the airways, and increasing airflow to the lungs",
-    "user_id": "3"
+    "user_id": "2"
   },
   {
     "name": "Penicillin",
     "dailySchedule": "2 times a day",
-    "fromDate": "2021-11-29",
+    "fromDate": "2021-11-30",
     "toDate": "2021-12-05",
     "dosage": "1 tablet",
     "comments": "Treats infections caused by bacteria",
-    "user_id": "3"
+    "user_id": "1"
   }
 ]
