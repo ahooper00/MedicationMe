@@ -25,7 +25,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    date_of_birth: {
+    dateOfBirth: {
       type: DataTypes.DATE,
       allowNull: true,
     },
