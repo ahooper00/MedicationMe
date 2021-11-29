@@ -2,41 +2,46 @@
   {
     "name": "Paracetamol",
     "dailySchedule": "2 times a day",
-    "fromDate": "29/11/2021",
-    "toDate": "05/12/2021",
+    "fromDate": "2021-11-29",
+    "toDate": "2021-12-05",
     "dosage": "1 tablet",
-    "comments": "Pain reliever and fever reducer, with food"
+    "comments": "Pain reliever and fever reducer, with food",
+    "user_id": "1"
   },
   {
     "name": "Ibuprofen",
     "dailySchedule": "2 times a day",
-    "fromDate": "29/11/2021",
-    "toDate": "05/12/2021",
+    "fromDate": "2021-11-21",
+    "toDate": "2021-12-01",
     "dosage": "1 tablet",
-    "comments": "Nonsteroidal anti-inflammatory drug; assists in reducing swelling and inflammation"
+    "comments": "Nonsteroidal anti-inflammatory drug; assists in reducing swelling and inflammation",
+    "user_id": "2"
   },
   {
     "name": "Cetirizine",
     "dailySchedule": "2 times a day",
-    "fromDate": "29/11/2021",
-    "toDate": "05/12/2021",
+    "fromDate": "2021-11-22",
+    "toDate": "2021-12-04",
     "dosage": "1 tablet",
-    "comments": "Antihistamine that treats hay-fever-like alleries and symptoms"
+    "comments": "Antihistamine that treats hay-fever-like alleries and symptoms",
+    "user_id": "3"
   },
   {
     "name": "Salbutamol",
     "dailySchedule": "2 times a day",
-    "fromDate": "29/11/2021",
-    "toDate": "05/12/2021",
+    "fromDate": "2021-11-29",
+    "toDate": "2021-12-01",
     "dosage": "1 tablet",
-    "comments": "Assists in the treatment of asthma by relaxing muscles in the airways, and increasing airflow to the lungs"
+    "comments": "Assists in the treatment of asthma by relaxing muscles in the airways, and increasing airflow to the lungs",
+    "user_id": "2"
   },
   {
     "name": "Penicillin",
     "dailySchedule": "2 times a day",
-    "fromDate": "29/11/2021",
-    "toDate": "05/12/2021",
+    "fromDate": "2021-11-30",
+    "toDate": "2021-12-05",
     "dosage": "1 tablet",
-    "comments": "Treats infections caused by bacteria"
+    "comments": "Treats infections caused by bacteria",
+    "user_id": "1"
   }
 ]
