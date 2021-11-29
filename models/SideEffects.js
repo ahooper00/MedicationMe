@@ -1,32 +1,32 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class SideEffects extends Model { }
+class SideEffects extends Model {}
 
 SideEffects.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-        },
-        description: {
-            type: DataTypes.STRING,
-        },
-        medication_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'medication',
-                key: 'id'
-            },
-        },
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
     },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'sideEffects',
-    }
+    description: {
+      type: DataTypes.STRING,
+    },
+    medication_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Medication",
+        key: "id",
+      },
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "sideEffects",
+  }
 );
 
 module.exports = SideEffects;
