@@ -11,6 +11,10 @@ Medication.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     dailySchedule: {
       type: DataTypes.STRING,
       allowNull: false,
