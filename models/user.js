@@ -43,7 +43,7 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-        is: "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$", // unsure about this part - happy to change to just length if the doesn't work??
+        // is: "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$", // unsure about this part - happy to change to just length if the doesn't work??
       },
     },
   },

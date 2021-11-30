@@ -70,7 +70,6 @@ router.post("/", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
-
     // If the user data (email) doesn't exist in database, throw error message
     if (!userData) {
       res
@@ -78,7 +77,7 @@ router.post("/login", async (req, res) => {
         .json({ message: "Incorrect email or password, try again." });
       return;
     }
-
+    console.log("here");
     const userPassword = await userData.checkPassword(req.body.password);
 
     // If the user data (password) doesn't exist in database, throw error message

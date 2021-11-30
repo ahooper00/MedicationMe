@@ -11,12 +11,12 @@ loginFormHandler = async (event) => {
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application" },
     });
-  }
 
-  if (response.ok) {
-    document.location.replace("/profile");
-  } else {
-    alert(response.statusText);
+    if (response.ok) {
+      document.location.replace("/profile");
+    } else {
+      alert(response.statusText);
+    }
   }
 };
 
