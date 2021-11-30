@@ -1,18 +1,18 @@
 const newMedSchedule = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector("#medname");
-  const time = document.querySelector("#time");
-  const fromDate = document.querySelector("#fromDate");
-  const toDate = document.querySelector("#toDate");
-  const dosage = document.querySelector("#dosage");
-  const comments = document.querySelector("#instructions");
+  const name = document.querySelector("#medname").value.trim();
+  const dailySchedule = document.querySelector("#time").value.trim();
+  const fromDate = document.querySelector("#fromDate").value.trim();
+  const toDate = document.querySelector("#toDate").value.trim();
+  const dosage = document.querySelector("#dosage").value.trim();
+  const comments = document.querySelector("#instructions").value.trim();
 
   const response = await fetch("/api/medication", {
     method: "POST",
     body: JSON.stringify({
       name,
-      time,
+      dailySchedule,
       fromDate,
       toDate,
       dosage,
@@ -24,11 +24,23 @@ const newMedSchedule = async (event) => {
   });
 
   if (response.ok) {
-    document.location.replace("/");
+    getAllMedications();
   } else {
     alert("Failed to add schedule");
   }
 };
+
+async function getAllMedications() {
+  const response = await fetch("/api/profile");
+  if (response.ok) {
+    const data = await response.json();
+
+    // clear the current table content
+    // replace it with the data from the fetch
+  } else {
+    alert("Failed to add schedule");
+  }
+}
 
 const logout = async () => {
   const response = await fetch("/api/user/logout", {
