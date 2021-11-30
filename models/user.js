@@ -3,7 +3,9 @@ const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
 
 class User extends Model {
-  // add function here that encrypts user password
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
 }
 
 User.init(
@@ -43,7 +45,6 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-        is: "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$", // unsure about this part - happy to change to just length if the doesn't work??
       },
     },
   },
