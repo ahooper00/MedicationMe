@@ -3,7 +3,7 @@
     "firstName": "Amelia",
     "lastName": "Hooper",
     "gender": "Female",
-    "dateOfBirth": "01/01/1900",
+    "dateOfBirth": "01-01-1900",
     "email": "AmeliaH@email.com",
     "password": "Amelia1234"
   },
@@ -11,7 +11,7 @@
     "firstName": "Sam",
     "lastName": "Hong",
     "gender": "Male",
-    "dateOfBirth": "01/01/1900",
+    "dateOfBirth": "01-01-1900",
     "email": "SamH@email.com",
     "password": "Sam1234"
   },
@@ -19,7 +19,7 @@
     "firstName": "Anna",
     "lastName": "Nguyen",
     "gender": "Female",
-    "dateOfBirth": "01/01/1900",
+    "dateOfBirth": "01-01-1900",
     "email": "AnnaN@email.com",
     "password": "Anna1234"
   }
