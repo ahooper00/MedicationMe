@@ -20,6 +20,7 @@ User.init(
     },
     lastName: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     gender: {
       type: DataTypes.STRING,
@@ -42,7 +43,7 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-        is: /^[0-9a-f]{64}$/, // unsure about this part - happy to change to just length if the doesn't work??
+        is: "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$", // unsure about this part - happy to change to just length if the doesn't work??
       },
     },
   },
