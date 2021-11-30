@@ -3,8 +3,8 @@ const apiRoutes = require("./api");
 // const homeRoutes = require('./homeRoutes');
 
 // router.use('/', homeRoutes);
-router.get("/homepage", (req, res) => {
-  res.render("homepage");
+router.get("/", (req, res) => {
+  res.render("login");
 });
 
 router.get("/signup", (req, res) => {
