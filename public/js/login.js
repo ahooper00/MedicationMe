@@ -19,7 +19,6 @@ const loginFormHandler = async (event) => {
       document.location.replace("/profile");
     } else {
       alert(response.statusText);
-      console.log(await response.json())
     }
   }
 };
