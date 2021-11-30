@@ -5,32 +5,20 @@ const withAuth = require("../utils/auth.js");
 router.get("/", async (req, res) => {
   try {
     //Get all users and JOIN with user data
-    const dbUserData = await User.findAll({
+    const dbProfileData = await Medication.findAll({
       include: [
         {
-          model: Medication,
-          attributes: [
-            "id",
-            "name",
-            "example_brand",
-            "description",
-            "dateRange",
-            "dosage",
-            "user_id",
-          ],
-        },
-      ],
-      include: [
-        {
-          model: SideEffects,
-          attributes: ["id", "description", "medication_id"],
+          model: User,
+          attributes: ["firstName", "lastName"],
         },
       ],
     });
-    const users = dbUserData.map((user) => user.get({ plain: true }));
+    const profile = dbProfileData.map((medication) =>
+      medication.get({ plain: true })
+    );
 
     res.render("homepage", {
-      users,
+      profile,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -38,35 +26,21 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/user/:id", async (req, res) => {
+router.get("/profile/:id", async (req, res) => {
   try {
-    const dbUserData = await User.findByPk(req.params.id, {
+    const profileData = await User.findByPk(req.params.id, {
       include: [
         {
-          model: Medication,
-          attributes: [
-            "id",
-            "name",
-            "example_brand",
-            "description",
-            "dateRange",
-            "dosage",
-            "user_id",
-          ],
-        },
-      ],
-      include: [
-        {
-          model: SideEffects,
-          attributes: ["id", "description", "medication_id"],
+          model: User,
+          attributes: ["firstName", "lastName"],
         },
       ],
     });
 
-    const user = dbUserData.get({ plain: true });
+    const profile = profileData.get({ plain: true });
 
     res.render("homepage", {
-      ...user,
+      ...profile,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -96,7 +70,7 @@ router.get("/profile", withAuth, async (req, res) => {
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/profile");
     return;
   }
 
