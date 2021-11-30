@@ -7,7 +7,12 @@ router.get('/', async (req, res) => {
     try {
         const getUser = await User.findAll({
             include: [Medication, SideEffects]
-        }
+        },
+            {
+                attributes: {
+                    exclude: ['password']
+                },
+            },
         );
         res.status(200).json(getUser)
     } catch (err) {
@@ -21,7 +26,13 @@ router.get('/:id', async (req, res) => {
     try {
         const findOneUser = await User.findByPk(req.params.id, {
             include: [Medication, SideEffects]
-        });
+        },
+            {
+                attributes: {
+                    exclude: ['password']
+                },
+            },
+        );
         if (!findOneUser) {
             res.status(400).json({ message: 'No user found with that id' })
             return
@@ -35,12 +46,18 @@ router.get('/:id', async (req, res) => {
 // Create a new user
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create(req.body);
+        const userData = await User.create(
+            {
+                email: req.body.email,
+                password: req.body.password,
+            }
+        );
 
         // Save user id and password
         req.session.save(() => {
-            req.session.user_id = userData.id,
-                req.session.logged_in = true;
+            req.session.user_id = userData.id;
+            req.session.email = userData.email;
+            req.session.logged_in = true;
 
             res.status(200).json(userData);
         });
@@ -70,8 +87,9 @@ router.post('/login', async (req, res) => {
 
         // If user data matches what is saved in database, show success message
         req.session.save(() => {
-            req.session.user_id = userData.id,
-                req.session.logged_in = true;
+            req.session.user_id = userData.id;
+            req.session.email = userData.email;
+            req.session.logged_in = true;
 
             res.status(200).json({ message: "Successfully logged in!" })
         });
