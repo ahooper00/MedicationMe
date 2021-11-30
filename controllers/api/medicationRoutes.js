@@ -35,12 +35,18 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Add a new medication
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newMedication = await Medication.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+    const newMedication = await Medication.create(
+      {
+        name: req.body.name,
+        dailySchedule: req.body.dailySchedule,
+        fromDate: req.body.fromDate,
+        toDate: req.body.toDate,
+        dosage: req.body.dosage,
+        comments: req.body.comments,
+      });
 
     res.status(200).json(newMedication);
   } catch (err) {
@@ -48,6 +54,35 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// Update a medication
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const updateMedication = await Medication.update(
+      {
+        name: req.body.name,
+        dailySchedule: req.body.dailySchedule,
+        fromDate: req.body.fromDate,
+        toDate: req.body.toDate,
+        dosage: req.body.dosage,
+        comments: req.body.comments,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      });
+
+    if (!updateMedication) {
+      res.status(400).json({ message: 'No medication found with that id' })
+      return
+    }
+    res.status(200).json(updateMedication);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Delete a medication
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const medicationData = await Medication.destroy({
