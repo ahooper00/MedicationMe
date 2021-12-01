@@ -66,6 +66,7 @@ router.post("/", withAuth, async (req, res) => {
       toDate: req.body.toDate,
       dosage: req.body.dosage,
       comments: req.body.comments,
+      user_id: req.session.user_id,
     });
 
     res.status(200).json(newMedication);
