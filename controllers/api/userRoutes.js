@@ -2,26 +2,28 @@ const router = require("express").Router();
 const { User, Medication, SideEffects } = require("../../models");
 
 // // Get one user
-// router.get('/:id', async (req, res) => {
-//     // Find one user by its 'id'
-//     try {
-//         const findOneUser = await User.findByPk(req.params.id, {
-//             include: [Medication, SideEffects]
+// router.get("/:id", async (req, res) => {
+//   // Find one user by its 'id'
+//   try {
+//     const findOneUser = await User.findByPk(
+//       req.params.id,
+//       {
+//         include: [Medication, SideEffects],
+//       },
+//       {
+//         attributes: {
+//           exclude: ["password"],
 //         },
-//             {
-//                 attributes: {
-//                     exclude: ['password']
-//                 },
-//             },
-//         );
-//         if (!findOneUser) {
-//             res.status(400).json({ message: 'No user found with that id' })
-//             return
-//         }
-//         res.status(200).json(findOneUser)
-//     } catch (err) {
-//         res.status(500).json(err)
+//       }
+//     );
+//     if (!findOneUser) {
+//       res.status(400).json({ message: "No user found with that id" });
+//       return;
 //     }
+//     res.status(200).json(findOneUser);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
 // });
 
 // // Get all users
