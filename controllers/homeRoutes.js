@@ -11,52 +11,6 @@ router.get("/", (req, res) => {
   res.render("login");
 });
 
-// router.get("/", async (req, res) => {
-//   try {
-//     //Get all users and JOIN with user data
-//     const dbProfileData = await Medication.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ["firstName", "lastName"],
-//         },
-//       ],
-//     });
-//     const profile = dbProfileData.map((medication) =>
-//       medication.get({ plain: true })
-//     );
-
-//     res.render("homepage", {
-//       profile,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.get("/profile/:id", async (req, res) => {
-//   try {
-//     const profileData = await User.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ["firstName", "lastName"],
-//         },
-//       ],
-//     });
-
-//     const profile = profileData.get({ plain: true });
-
-//     res.render("homepage", {
-//       ...profile,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 //Use withAuth middleware to prevent access to route
 router.get("/profile", withAuth, async (req, res) => {
   try {
@@ -82,7 +36,6 @@ router.get("/login", (req, res) => {
     res.redirect("/profile");
     return;
   }
-
   res.render("login");
 });
 
