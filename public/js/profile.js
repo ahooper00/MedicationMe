@@ -1,3 +1,16 @@
+const body = document.querySelector("body");
+const db = require("./db");
+const PORT = process.env.PORT || 3001;
+
+function noBackground() {
+  body.style.background = "none";
+}
+
+const getMedSchedule = async () => {
+  const response = await fetch("/api/profile/");
+  console.log(response);
+};
+
 const newMedSchedule = async (event) => {
   event.preventDefault();
 
@@ -34,7 +47,7 @@ async function getAllMedications() {
   const response = await fetch("/api/profile");
   if (response.ok) {
     const data = await response.json();
-
+    console.log(data);
     // clear the current table content
     // replace it with the data from the fetch
   } else {
@@ -60,3 +73,6 @@ document.querySelector("#logout").addEventListener("click", logout);
 document
   .querySelector(".new-schedule")
   .addEventListener("submit", newMedSchedule);
+
+noBackground();
+getMedSchedule();
