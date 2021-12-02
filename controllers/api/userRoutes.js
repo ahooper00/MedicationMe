@@ -119,12 +119,14 @@ router.post("/login", async (req, res) => {
 
 // Logout current user
 router.post("/logout", async (req, res) => {
+  console.log("----------");
+  console.log(req.session.logged_in);
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      req.status(204).end();
+      res.status(204).end();
     });
   } else {
-    req.status(404).end();
+    res.status(404).end();
   }
 });
 
