@@ -1,8 +1,15 @@
 const body = document.querySelector("body");
+const db = require("./db");
+const PORT = process.env.PORT || 3001;
 
 function noBackground() {
   body.style.background = "none";
 }
+
+const getMedSchedule = async () => {
+  const response = await fetch("/api/profile/");
+  console.log(response);
+};
 
 const newMedSchedule = async (event) => {
   event.preventDefault();
@@ -37,21 +44,37 @@ const newMedSchedule = async (event) => {
   }
 };
 
-// async function getAllMedications() {
-//   const response = await fetch("/api/medication/");
-//   if (response.ok) {
-//     const data = await response.json();
-//     console.log(data);
-//     document.location.replace("/profile");
-//     // clear the current table content
-//     // replace it with the data from the fetch
-//   } else {
-//     alert("Failed to add schedule");
-//   }
-// };
+
+async function getAllMedications() {
+  const response = await fetch("/api/profile");
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data);
+    // clear the current table content
+    // replace it with the data from the fetch
+  } else {
+    alert("Failed to add schedule");
+  }
+}
+
+const logout = async () => {
+  const response = await fetch("/api/user/logout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (response.ok) {
+    document.location.replace("/");
+  } else {
+    alert(response.statusText);
+  }
+};
+
+document.querySelector("#logout").addEventListener("click", logout);
 
 document
   .querySelector(".new-schedule")
   .addEventListener("submit", newMedSchedule);
 
 noBackground();
+getMedSchedule();
