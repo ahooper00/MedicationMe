@@ -37,11 +37,13 @@ const newMedSchedule = async (event) => {
   });
 
   if (response.ok) {
-    getAllMedications();
+    // getAllMedications();
+    document.location.replace("/profile");
   } else {
     alert("Failed to add schedule");
   }
 };
+
 
 async function getAllMedications() {
   const response = await fetch("/api/profile");

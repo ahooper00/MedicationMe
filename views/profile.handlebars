@@ -6,13 +6,13 @@
       </h1>
       <ul class="header-list">
         <li class="nav-item-list">
-          <a href="/" class="link-purple" id="logout">Log Out</a>
+          <a href="#" class="link-purple" id="logout">Log Out</a>
         </li>
       </ul>
     </nav>
 
     <section class="user">
-      <h2>Hello, User!</h2>
+      <h2>Hello, {{firstName}}</h2>
     </section>
 
     <section class="tabSection">
@@ -49,7 +49,7 @@
                       <th scope="col">Comments</th>
                     </thead>
                     <tbody>
-                        {{#each medication as |med|}}
+                        {{#each medications as |med|}}
                         {{> schedule-details}}
                         {{/each}}
                     </tbody>
@@ -64,7 +64,7 @@
                     <h5>Upcoming</h5>
                   </div>
                   <ul class="list-group list-group-flush">
-                      {{#each medication as |med|}}
+                      {{#each medications as |med|}}
                       {{> upcoming-details}}
                       {{/each}}
                   </ul>
@@ -167,7 +167,7 @@
                       <th scope="col">Time Frame</th>
                     </thead>
                     <tbody>
-                        {{#each medication as |med|}}
+                        {{#each medications as |med|}}
                         {{> medications-details}}
                         {{/each}}
                     </tbody>
@@ -187,16 +187,19 @@
                   </div>
                   <table class="table table-striped">
                     <thead>
-                      <th scope="col">Name</th>
+                      <th scope="col">First Name</th>
+                      <th scope="col">Last Name</th>
                       <th scope="col">Gender</th>
                       <th scope="col">Date of Birth</th>
+                      <th scope="col">Email</th>
                     </thead>
                     <tbody>
-                      <tr>
+                        {{> myDetails-details}}
+                      {{!-- <tr>
                         <th scope="row">Tony Riddford</th>
                         <td>Male</td>
                         <td>18/03/1922</td>
-                      </tr>
+                      </tr> --}}
                     </tbody>
                   </table>
                 </div>
@@ -208,4 +211,11 @@
     </section>
     </body>
 
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+    ></script>
     <script src="/js/profile.js"></script>
+    {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
