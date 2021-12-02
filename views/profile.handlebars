@@ -12,7 +12,7 @@
     </nav>
 
     <section class="user">
-      <h2>Hello, {{user.name}}</h2>
+      <h2>Hello, {{firstName}}</h2>
     </section>
 
     <section class="tabSection">
@@ -167,7 +167,7 @@
                       <th scope="col">Time Frame</th>
                     </thead>
                     <tbody>
-                        {{#each medication as |med|}}
+                        {{#each medications as |med|}}
                         {{> medications-details}}
                         {{/each}}
                     </tbody>
