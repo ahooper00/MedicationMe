@@ -1,12 +1,20 @@
 const router = require("express").Router();
 const { Medication, SideEffects, User } = require("../../models");
 const withAuth = require("../../utils/auth");
+const { Op } = require("sequelize");
 
 // Get all medication
 router.get("/", async (req, res) => {
   // Find all medications
+
+  const date = new Date().toLocaleDateString();
   try {
     const getMedication = await Medication.findAll({
+      where: {
+        from: { [Op.lte]: date },
+        to: { [Op.gte]: date },
+      },
+      logging: true,
       attributes: [
         "id",
         "name",
