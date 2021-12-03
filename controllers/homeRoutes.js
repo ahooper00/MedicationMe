@@ -15,9 +15,13 @@ router.get("/", (req, res) => {
 //Use withAuth middleware to prevent access to route
 router.get("/profile", withAuth, async (req, res) => {
   try {
-    const date = new Date().toLocaleDateString(); // MM/DD/YYYY
+    const date = new Date().toLocaleDateString("en-US", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
 
-    console.log("date:", date);
+    // Return all medications where today's date falls between the from and to date inclusively
     const userData = await User.findByPk(req.session.user_id, {
       logging: true,
       attributes: { exclude: ["password"] },
@@ -25,8 +29,8 @@ router.get("/profile", withAuth, async (req, res) => {
         {
           model: Medication,
           where: {
-            fromDate: { [Op.lte]: "12/02/2021" },
-            toDate: { [Op.gte]: "12/02/2021" },
+            fromDate: { [Op.lte]: date },
+            toDate: { [Op.gte]: date },
           },
           attributes: [
             "id",
@@ -40,13 +44,64 @@ router.get("/profile", withAuth, async (req, res) => {
         },
       ],
     });
-    console.log(userData);
-    const user = userData.get({ plain: true });
 
-    res.render("profile", {
-      ...user,
-      logged_in: true,
+    const currentMeds = userData.get({ plain: true });
+    console.log(currentMeds);
+
+    // Return all the medications where the toDate is future dated including today's date
+    const userData2 = await User.findByPk(req.session.user_id, {
+      logging: true,
+      attributes: { exclude: ["password"] },
+      include: [
+        {
+          model: Medication,
+          where: {
+            toDate: { [Op.gte]: date },
+          },
+          attributes: [
+            "id",
+            "name",
+            "dailySchedule",
+            "fromDate",
+            "toDate",
+            "dosage",
+            "comments",
+          ],
+        },
+      ],
     });
+
+    const upcomingMeds = userData2.get({ plain: true });
+
+    const users = await User.findByPk(req.session.user_id, {
+      logging: true,
+      attributes: { exclude: ["password"] },
+      include: [
+        {
+          model: Medication,
+          attributes: [
+            "id",
+            "name",
+            "dailySchedule",
+            "fromDate",
+            "toDate",
+            "dosage",
+            "comments",
+          ],
+        },
+      ],
+    });
+
+    const user = users.get({ plain: true });
+
+    const data = {
+      ...user,
+      datesIncluded: currentMeds.medications,
+      datesUpcoming: upcomingMeds.medications,
+      logged_in: true,
+    };
+
+    res.render("profile", data);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
