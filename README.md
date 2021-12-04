@@ -37,6 +37,8 @@ Installation of Node.js on your local machine is required to properly use this a
 
 - Run "mysql -u root -p" with the correct username & password in .env file then run the command "source db/schema.sql" to connect the database.
 
+- Run "node seeds/seed.js" to seed the file.
+
 - Run "node server.js" or "npm start" in order to connect to the server.
 
 ## Usage
