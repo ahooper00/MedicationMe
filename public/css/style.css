@@ -62,14 +62,8 @@ body {
   background-color: var(--darkpeach);
 }
 
-footer {
-  position: fixed;
-  bottom: 10px;
-  text-align: center;
-}
-
-.font-12,
-.tab-panel {
+.font-12
+/* .tab-panel  */ {
   font-size: 12px;
 }
 
