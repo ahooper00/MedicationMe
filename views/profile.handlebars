@@ -49,7 +49,7 @@
                       <th scope="col">Comments</th>
                     </thead>
                     <tbody>
-                        {{#each medications as |med|}}
+                        {{#each datesIncluded as |datesIncluded|}}
                         {{> schedule-details}}
                         {{/each}}
                     </tbody>
@@ -64,7 +64,7 @@
                     <h5>Upcoming</h5>
                   </div>
                   <ul class="list-group list-group-flush">
-                      {{#each medications as |med|}}
+                      {{#each datesUpcoming as |datesUpcoming|}}
                       {{> upcoming-details}}
                       {{/each}}
                   </ul>
