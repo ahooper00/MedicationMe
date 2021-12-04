@@ -47,7 +47,7 @@ Installation of Node.js on your local machine is required to properly use this a
 
 The following images demonstrates the UI of the application:
 
-![Login page](./public/images/login.jpg)
+![Login page](./public/images/login.JPG)
 ![Signup page](./public/images/signUp.jpg)
 ![Profile page](./public/images/profile.jpg)
 
