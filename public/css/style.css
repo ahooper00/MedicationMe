@@ -92,6 +92,10 @@ ul {
   list-style: none;
 }
 
+table {
+  font-size: 14px;
+}
+
 .nav-item-list {
   padding: 2rem;
 }
@@ -165,4 +169,40 @@ ul {
 
 .btn-w {
   width: 200px;
+}
+
+@media screen and (max-width: 926px) {
+  body {
+    background-image: none;
+    background-size: none;
+    background-repeat: none;
+    background-attachment: none;
+  }
+  #extra {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    margin: 2rem 2rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  nav {
+    margin: 0 0;
+  }
+  .p-4,
+  .p-3,
+  .m-3,
+  .m-4 {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  body,
+  table {
+    font-size: 12px;
+    overflow: auto;
+  }
 }
