@@ -3,7 +3,6 @@ const logout = async () => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
   });
-  console.log(response);
   if (response.ok) {
     document.location.replace("/");
   } else {

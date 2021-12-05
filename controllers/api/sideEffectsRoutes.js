@@ -1,42 +1,37 @@
-const router = require('express').Router();
-const { SideEffects, Medication } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { SideEffects, Medication } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-// Get all side effects
-router.get('/', async (req, res) => {
-  // Find all side effects
+router.get("/", async (req, res) => {
   try {
     const getSideEffects = await SideEffects.findAll({
       include: {
         model: Medication,
-        attributes: ['name']
-      }
+        attributes: ["name"],
+      },
     });
-    res.status(200).json(getSideEffects)
+    res.status(200).json(getSideEffects);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// Get one medication
-router.get('/:id', async (req, res) => {
-  // Find one side effect by its 'id'
+router.get("/:id", async (req, res) => {
   try {
     const findOneSideEffect = await SideEffects.findByPk(req.params.id, {
-      include: [{ model: Medication }]
+      include: [{ model: Medication }],
     });
     if (!findOneSideEffect) {
-      res.status(400).json({ message: 'No side effect found with that id' })
-      return
+      res.status(400).json({ message: "No side effect found with that id" });
+      return;
     }
-    res.status(200).json(findOneSideEffect)
+    res.status(200).json(findOneSideEffect);
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err);
   }
 });
 
-// Add a new side effect
-router.post('/', withAuth, async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const newSideEffect = await SideEffects.create({
       ...req.body,
@@ -49,8 +44,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// Update a side effect
-router.put('/:id', withAuth, async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
   try {
     const updateSideEffect = await SideEffects.update(
       {
@@ -60,11 +54,12 @@ router.put('/:id', withAuth, async (req, res) => {
         where: {
           id: req.params.id,
         },
-      });
+      }
+    );
 
     if (!updateSideEffect) {
-      res.status(400).json({ message: 'No side effect found with that id' })
-      return
+      res.status(400).json({ message: "No side effect found with that id" });
+      return;
     }
     res.status(200).json(updateSideEffect);
   } catch (err) {
@@ -72,8 +67,7 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-// Delete a side effect
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const sideEffectsData = await SideEffects.destroy({
       where: {
@@ -83,7 +77,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!sideEffectsData) {
-      res.status(404).json({ message: 'No side effect found with this id!' })
+      res.status(404).json({ message: "No side effect found with this id!" });
       return;
     }
 

@@ -51,6 +51,3 @@ Medication.init(
 );
 
 module.exports = Medication;
-
-// date range
-// dosage

@@ -3,10 +3,7 @@ const { Medication, SideEffects, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 const { Op } = require("sequelize");
 
-// Get all medication
 router.get("/", async (req, res) => {
-  // Find all medications
-
   const date = new Date().toLocaleDateString();
   try {
     const getMedication = await Medication.findAll({
@@ -31,7 +28,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get medication by user_id
 router.get("/:user_id", withAuth, async (req, res) => {
   try {
     const getMedicationByUser = await Medication.findAll(req.params.user_id, {
@@ -47,9 +43,7 @@ router.get("/:user_id", withAuth, async (req, res) => {
   }
 });
 
-// Get one medication
 router.get("/:id", async (req, res) => {
-  // Find one medication by its 'id'
   try {
     const findOneMedication = await Medication.findByPk(req.params.id, {
       include: [{ model: SideEffects }],
@@ -64,7 +58,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Add a new medication
 router.post("/", withAuth, async (req, res) => {
   try {
     const newMedication = await Medication.create({
@@ -83,7 +76,6 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// Update a medication
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const updateMedication = await Medication.update(
@@ -112,7 +104,6 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
-// Delete a medication
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const medicationData = await Medication.destroy({
