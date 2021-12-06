@@ -4,14 +4,8 @@ const withAuth = require("../../utils/auth");
 const { Op } = require("sequelize");
 
 router.get("/", async (req, res) => {
-  const date = new Date().toLocaleDateString();
   try {
     const getMedication = await Medication.findAll({
-      where: {
-        from: { [Op.lte]: date },
-        to: { [Op.gte]: date },
-      },
-      logging: true,
       attributes: [
         "id",
         "name",
