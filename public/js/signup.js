@@ -25,7 +25,9 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/profile");
     } else {
-      alert(response.statusText);
+      alert(
+        "Please ensure all details are entered and password is 8 characters long."
+      );
     }
   }
 };
