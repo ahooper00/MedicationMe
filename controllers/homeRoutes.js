@@ -13,73 +13,43 @@ router.get("/", (req, res) => {
 
 router.get("/profile", withAuth, async (req, res) => {
   try {
-    const date = new Date().toLocaleDateString("en-US", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
+    const date = new Date();
 
-    const checkUserDates = await User.findByPk(req.session.user_id, {
+    const medications = await Medication.findAll({
       logging: true,
       attributes: { exclude: ["password"] },
-      include: [
-        {
-          model: Medication,
-          attributes: ["fromDate", "toDate"],
-        },
-      ],
+      where: {
+        user_id: req.session.user_id
+      }
     });
-    const userDateData = checkUserDates.get({ plain: true });
 
-    if (userDateData.medications.length) {
-      const userData = await User.findByPk(req.session.user_id, {
-        logging: true,
-        attributes: { exclude: ["password"] },
-        include: [
-          {
-            model: Medication,
-            where: {
-              fromDate: { [Op.lte]: date },
-              toDate: { [Op.gte]: date },
-            },
-            attributes: [
-              "id",
-              "name",
-              "dailySchedule",
-              "fromDate",
-              "toDate",
-              "dosage",
-              "comments",
-            ],
-          },
+    if (medications.length) {
+      const currentMedicationQuery = await Medication.findAll({
+        where: {
+          user_id: req.session.user_id,
+          fromDate: { [Op.lte]: date },
+          toDate: { [Op.gte]: date },
+        },
+        attributes: [
+          "id",
+          "name",
+          "dailySchedule",
+          "fromDate",
+          "toDate",
+          "dosage",
+          "comments",
         ],
       });
 
-      const currentMeds = userData.get({ plain: true });
+      const currentMeds = currentMedicationQuery.map((result) => result.toJSON());
 
-      const userData2 = await User.findByPk(req.session.user_id, {
-        logging: true,
-        attributes: { exclude: ["password"] },
-        include: [
-          {
-            model: Medication,
-            where: {
-              toDate: { [Op.gte]: date },
-            },
-            attributes: [
-              "id",
-              "name",
-              "dailySchedule",
-              "fromDate",
-              "toDate",
-              "dosage",
-              "comments",
-            ],
-          },
-        ],
+      const upcomingMedicationQuery = await Medication.findAll({
+        where: {
+          toDate: { [Op.gte]: date },
+        }
       });
 
-      const upcomingMeds = userData2.get({ plain: true });
+      const upcomingMeds = upcomingMedicationQuery.map((result) => result.toJSON());
 
       const users = await User.findByPk(req.session.user_id, {
         logging: true,
@@ -104,8 +74,8 @@ router.get("/profile", withAuth, async (req, res) => {
 
       const data = {
         ...user,
-        datesIncluded: currentMeds.medications,
-        datesUpcoming: upcomingMeds.medications,
+        datesIncluded: currentMeds,
+        datesUpcoming: upcomingMeds,
         logged_in: true,
       };
 
@@ -140,15 +110,16 @@ router.get("/profile", withAuth, async (req, res) => {
       res.render("profile", data);
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
 router.get("/login", (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect("/profile");
-    return;
-  }
+  // if (req.session.logged_in) {
+  //   res.redirect("/profile");
+  //   return;
+  // }
   res.render("login");
 });
 
